@@ -1,7 +1,10 @@
 from typing import Any
 
+from src.BaseProduct import BaseProduct
+from src.PrintMixin import PrintMixin
 
-class Product:
+
+class Product(BaseProduct, PrintMixin):
     """ Класс, определяющий вид товара """
     name: str
     description: str
@@ -14,6 +17,7 @@ class Product:
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__()
 
     @classmethod
     def new_product(cls, product: dict) -> Any:
