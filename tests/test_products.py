@@ -41,3 +41,10 @@ def test_add(prod_1: Product, prod_2: Product) -> None:
 def test_add_error(prod_1: Product) -> None:
     with pytest.raises(TypeError):
         prod_1 + 1
+
+
+def test_invalid_prod() -> None:
+    with pytest.raises(ValueError) as e_info:
+        Product("Бракованный товар", "Неверное количество", 1000.0, 0)
+
+
